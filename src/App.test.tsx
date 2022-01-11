@@ -1,18 +1,11 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { App } from '../src/App';
+import { shallow } from 'enzyme';
 
-beforeEach(() => {
-  render(<App />);
-});
-
-test('renders learn react link', () => {
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
-test('renders image', () => {
-  const imageElement = screen.getByRole('img');
-  expect(imageElement).toHaveAttribute('src', 'logo.svg');
-  expect(imageElement).toHaveAttribute('alt', 'logo');
+describe('App component', () => {
+    it('shows grettings', () => {
+        const wrapper = shallow(<App />); 
+        const el = wrapper.find('.App');
+        expect(el.exists()).toBe(true);
+        expect(el.text()).toMatch(/Olá, Mundo!/i);
+    })
 })
