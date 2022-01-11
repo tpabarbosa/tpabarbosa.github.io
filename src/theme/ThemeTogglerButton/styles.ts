@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   text-align: right;
+
   .switch {
     position: relative;
     display: inline-block;
     width: 4rem;
     height: 1.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
   }
 
   .switch input {
