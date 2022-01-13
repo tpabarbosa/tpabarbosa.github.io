@@ -7,14 +7,14 @@ const sizes = {
     tablet: 768,
 }
 
-export type Medias = 'uhd' | 'widescreen' | 'desktop' | 'tablet';
+export type MediaSize = 'uhd' | 'widescreen' | 'desktop' | 'tablet';
 
 export type MediaType = {
-    [media in Medias]: (args: TemplateStringsArray, ...interpolations: any) =>{}
+    [media in MediaSize]: (args: TemplateStringsArray, ...interpolations: any) =>{}
 }
 
 export default Object.keys(sizes).reduce((acc:MediaType, label: string) => {
-    const media = label as Medias;
+    const media = label as MediaSize;
 
     acc[media] = (args,...interpolations) => css`
         @media (min-width: ${sizes[media]}px) {
