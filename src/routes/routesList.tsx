@@ -21,4 +21,6 @@ export const routesList: RouteObject[] = [
         path: '*',
         element: <PageNotFound />,
     },
-]
+];
+
+export const routesArray: string[] = ['/', '/projects', '/contact', '/about']
