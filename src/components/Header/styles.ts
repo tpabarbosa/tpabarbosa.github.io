@@ -10,11 +10,6 @@ export const Container = styled.header`
             transform: translate3d(0,-120px,0);
         }
     }
-
-    button {
-        
-    }
-
     
 `
 
@@ -102,7 +97,8 @@ export const Buttons = styled.div`
     right: 0;
     bottom: 0;
     z-index: 100;
-
+    height: fit-content;
+    
     button:nth-child(1) {
         margin-bottom: 0;
     }

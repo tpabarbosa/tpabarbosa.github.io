@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "../../Theme/media";
 
 export const Container = styled.main`
     background-image: url('/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg') ;
@@ -31,7 +32,6 @@ export const Container = styled.main`
     }
 
     a {
-        text-decoration: none;
         font-weight: bold;
         padding: 0.2rem 0.8rem;
         transition: color 1s, background-color 1s;
@@ -66,7 +66,12 @@ export const Container = styled.main`
             50% {opacity: 0.5;}
             100% {opacity: 1;}
         }
-
     }
+
+    ${media.tablet`
+        div {
+            padding-right: 25%;
+        }
+    `}
 
 `

@@ -46,10 +46,12 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
 
     a { 
       color: ${ theme.color };
+      cursor: pointer;
+      text-decoration: none;
     }
 
     @media (hover) {
-      button:hover {
+      button:hover, .icon-btn:hover {
           background-color: ${ theme.backgroundTwo};
           color: ${ theme.colorTwo};
       }
