@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import media from "../../Theme/media";
+import media from "../../../Theme/media";
 
-export const Container = styled.main`
+export const Section = styled.section`
     background-image: url('/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg') ;
     background-size: cover;
     width: 100%;
@@ -24,6 +24,7 @@ export const Container = styled.main`
     .hidden {
         transform: translate3d(-200%,0,0);
     }
+
 
     p {
         margin: 1.5rem;

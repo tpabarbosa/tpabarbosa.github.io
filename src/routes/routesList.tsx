@@ -1,10 +1,10 @@
 import { RouteObject } from "react-router";
-import { About } from "../components/About";
-import { Contact } from "../components/Contact";
+import { About } from "../components/PagesContent/About";
+import { Contact } from "../components/PagesContent/Contact";
 import { PageLayout } from "../components/PageLayout";
 import { PageNotFound } from "../components/PageNotFound";
-import { Projects } from "../components/Projects";
-import { Home } from "../components/Home";
+import { Projects } from "../components/PagesContent/Projects";
+import { Home } from "../components/PagesContent/Home";
 
 export const routesList: RouteObject[] = [
     {

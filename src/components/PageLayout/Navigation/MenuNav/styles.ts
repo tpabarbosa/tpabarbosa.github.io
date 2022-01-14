@@ -1,17 +1,4 @@
 import styled from "styled-components";
-import media from "../../Theme/media";
-
-export const Container = styled.header`
-    
-    .nav-hidden {
-        transform: translate3d(0,-100%,0);
-
-        a {
-            transform: translate3d(0,-120px,0);
-        }
-    }
-    
-`
 
 export const Nav = styled.nav`
     position: fixed;
@@ -26,6 +13,14 @@ export const Nav = styled.nav`
     background-color: ${props => props.theme.background};
     transition: transform .45s cubic-bezier(.45,0,0,1);
 
+    &.hidden {
+        transform: translate3d(0,-100%,0);
+
+        a {
+            transform: translate3d(0,-120px,0);
+        }        
+    }
+
     a { 
         display: flex;
         align-items: center;
@@ -39,7 +34,7 @@ export const Nav = styled.nav`
         text-decoration: none;
         background-color: rgba(0,0,0,.02);
         transition: transform .55s cubic-bezier(0,.35,0,1), color .15s ease-out .1s;
-    
+
         span { 
             width: 100%;
             font-size: 1.5rem;
@@ -88,24 +83,4 @@ export const Nav = styled.nav`
             transition-delay: .12s;
         }
     }
-`
-
-export const Buttons = styled.div`
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    height: fit-content;
-    
-    button:nth-child(1) {
-        margin-bottom: 0;
-    }
-
-    ${media.tablet`
-        flex-direction: row;
-        top: 0;
-        right: 0;
-    `}
 `

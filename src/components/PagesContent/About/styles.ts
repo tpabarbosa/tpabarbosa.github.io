@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+export const Section = styled.section`
     padding-top: 4rem;
     margin: 0 auto;
     width: 90%;
     max-width: 800px;
+    height: 100vh;
 
     img {
         margin: 0 15%;
@@ -34,4 +35,5 @@ export const Container = styled.main`
         background-color: ${props => props.theme.backgroundTwo};
         color: ${props => props.theme.colorTwo};
     }
+
 `
