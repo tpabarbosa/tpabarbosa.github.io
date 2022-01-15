@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import useLanguage from "../../../Translation";
 import { Background } from "../../Background";
 import { PageContext } from "../../PageLayout";
 import { Title } from "../../Title";
 import * as S from "./styles";
+import { data } from "./data";
 
 export const Home = () => {
     const page = useContext(PageContext);
+    const [lang] = useLanguage();
 
     return (
         <S.Section >
@@ -16,13 +19,13 @@ export const Home = () => {
                 position={'0 0'} 
             />
             <Title isLoaded={page.state==='LOADED' ? true : false} >
-                <h1>Hi, my name is Tatiana Barbosa.</h1>
-                <p>I am a self-taught full-stack developer. </p>
+                <h1>{data.title[lang]}</h1>
+                <p>{data.paragraph[lang]} </p>
                 <Link 
                     to='/projects' 
                     onClick={() => page.dispatchAction('CHANGE_PAGE')}
                 >
-                    <span>Check out some of my projects</span>
+                    <span>{data.link[lang]}</span>
                     <span>{'  >'}</span>
                     <span>{'  >'}</span>
                     <span>{'  >'}</span>

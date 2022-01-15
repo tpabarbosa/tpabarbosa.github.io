@@ -10,7 +10,7 @@ export const Section = styled.section`
     overflow: hidden;
 
     p {
-        margin: 1.5rem;
+        margin-top: 1.5rem;
         line-height: 1.8rem;
         font-size: 1.2rem;
     }

@@ -5,9 +5,12 @@ import { useContext } from "react";
 import { PageContext } from "../../PageLayout";
 import { Background } from "../../Background";
 import { Title } from "../../Title";
+import { data } from "./data";
+import useLanguage from "../../../Translation";
 
 export const Projects = () => {
     const page = useContext(PageContext);
+    const [lang] = useLanguage();
     
     return (
         <S.Section>
@@ -16,8 +19,8 @@ export const Projects = () => {
                 position={'90% 0'} 
             />
             <Title isLoaded={page.state==='LOADED' ? true : false}>
-                <h1>Projects</h1>
-                <p>Those are some of my projects. </p>
+                <h1>{data.title[lang]}</h1>
+                <p>{data.paragraph[lang]}</p>
             </Title>
             <S.Projects className={page.state==='LOADED' ? '' : 'hidden'}>
                 {projects.map(project => 

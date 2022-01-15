@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ThemeTogglerButton } from "../../../Theme/ThemeTogglerButton";
 import { PageContext } from "..";
 import * as S from "./styles";
+import { LanguageTogglerButton } from "../../../Translation/LanguageTogglerButton";
 
 export const PageButtons = () => {
     const page = useContext(PageContext);
@@ -21,6 +22,7 @@ export const PageButtons = () => {
 
     return (
         <S.Container>
+            <LanguageTogglerButton />
             <ThemeTogglerButton />
             <button onClick={handleClick} className='icon-btn'>    
                 {renderIcon()}

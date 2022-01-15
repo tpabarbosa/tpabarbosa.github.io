@@ -23,4 +23,25 @@ export const routesList: RouteObject[] = [
     },
 ];
 
-export const routesArray: string[] = ['/', '/projects', '/contact', '/about']
+export const routes = [
+    { 
+        path: '/',
+        'PT-BR': 'página inicial',
+        'EN': 'home'
+    },
+    {
+        path: '/projects',
+        'PT-BR': 'projetos',
+        'EN': 'projects'
+    },
+    {
+        path: '/contact',
+        'PT-BR': 'contato',
+        'EN': 'contact'
+    },
+    {
+        path: '/about',
+        'PT-BR': 'quem sou',
+        'EN': 'about'
+    },
+]
