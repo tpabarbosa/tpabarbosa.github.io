@@ -8,7 +8,8 @@ export const Home = () => {
 
     return (
         <S.Section >
-            <div className={page.state==='LOADED' ? '' : 'hidden'}>
+            <S.Background />
+            <S.Title className={page.state==='LOADED' ? '' : 'hidden'}>
                 <h1>Hi, my name is Tatiana Barbosa.</h1>
                 <p>I am a self-taught full-stack developer. </p>
                 <Link 
@@ -20,7 +21,7 @@ export const Home = () => {
                     <span>{'  >'}</span>
                     <span>{'  >'}</span>
                 </Link>
-            </div>
+            </S.Title>
         </S.Section>
     )
 }
