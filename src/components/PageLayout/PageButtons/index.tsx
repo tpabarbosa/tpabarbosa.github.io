@@ -3,7 +3,7 @@ import { ThemeTogglerButton } from "../../../Theme/ThemeTogglerButton";
 import { PageContext } from "..";
 import * as S from "./styles";
 
-export const Header = () => {
+export const PageButtons = () => {
     const page = useContext(PageContext);
     
     const handleClick = () => {

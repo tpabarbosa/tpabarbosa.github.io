@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { Outlet } from 'react-router';
 import { Machine, useStateMachine } from '../../stateMachine/useStateMachine';
-import { Header } from "./Header"
+import { PageButtons } from "./PageButtons"
 import { Loader } from "./Loader"
 import { MenuNav } from './Navigation/MenuNav';
 import { PrevNextNav } from "./Navigation/PrevNextNav";
@@ -60,7 +60,7 @@ export const PageLayout = () => {
                 />
 
                 <MenuNav />
-                <Header />
+                <PageButtons />
                 <PrevNextNav type='prev' />
                 <S.FadeIn className={state}>
                     <Outlet />
