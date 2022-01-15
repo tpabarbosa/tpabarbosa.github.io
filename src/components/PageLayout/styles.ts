@@ -6,7 +6,6 @@ export const Page = styled.div`
         animation-duration: 1.0s;
         animation-iteration-count: 1;
     }
-
 `
 
 export const FadeOut = styled.div`
@@ -31,6 +30,7 @@ export const FadeOut = styled.div`
 `
 
 export const FadeIn = styled.main`
+
     &.TRANSITIONING_PAGES {
         animation-name: fadeIn;
     }
