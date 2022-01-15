@@ -10,7 +10,7 @@ export const Container = styled.div`
     z-index: 1000;
     height: fit-content;
     
-    button:nth-child(1) {
+    button:not(:last-child) {
         margin-bottom: 0;
     }
 
