@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Background } from "../../Background";
 import { PageContext } from "../../PageLayout";
+import { Title } from "../../Title";
 import * as S from "./styles";
 
 export const Home = () => {
@@ -8,8 +10,12 @@ export const Home = () => {
 
     return (
         <S.Section >
-            <S.Background />
-            <S.Title className={page.state==='LOADED' ? '' : 'hidden'}>
+            <Background 
+                url={'/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg'} 
+                size={'cover'} 
+                position={'0 0'} 
+            />
+            <Title isLoaded={page.state==='LOADED' ? true : false} >
                 <h1>Hi, my name is Tatiana Barbosa.</h1>
                 <p>I am a self-taught full-stack developer. </p>
                 <Link 
@@ -21,7 +27,7 @@ export const Home = () => {
                     <span>{'  >'}</span>
                     <span>{'  >'}</span>
                 </Link>
-            </S.Title>
+            </Title>
         </S.Section>
     )
 }
