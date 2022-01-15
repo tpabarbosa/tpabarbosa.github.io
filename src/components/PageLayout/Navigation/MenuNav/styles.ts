@@ -8,7 +8,6 @@ export const Nav = styled.nav`
     left: 0;
     width: 100%;
     height: 100vh;
-    position: absolute;
     display: block;
     background-color: ${props => props.theme.background};
     transition: transform .45s cubic-bezier(.45,0,0,1);
