@@ -26,6 +26,24 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
       transition: color 0.5s, background-color 0.5s;
     }
 
+    a { 
+      color: ${ theme.color };
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .text-btn {
+      background-color: ${ theme.backgroundButton};
+      color: ${ theme.colorButton};
+      cursor: pointer;
+      padding: 0.75rem;
+      margin: 1rem;
+      border: 1px solid ${ theme.color };
+      border-radius: 0.5rem;
+      box-shadow: 2px 2px 2px #888888;
+      transition: color 0.5s, background-color 0.5s;
+    }
+
     .icon-btn { 
       padding: 0.75rem;
       margin: 1rem;
@@ -35,6 +53,7 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
       border: 0;
       border-radius:100%;
       background-color: rgba(0,0,0,.2);
+      cursor: pointer;
 
       span {
         font-size: 1.5rem;
@@ -44,21 +63,15 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
 
     }
 
-    a { 
-      color: ${ theme.color };
-      cursor: pointer;
-      text-decoration: none;
-    }
-
     @media (hover) {
-      button:hover, .icon-btn:hover {
+      button:hover, .icon-btn:hover, .text-btn:hover {
           background-color: ${ theme.backgroundTwo};
           color: ${ theme.colorTwo};
       }
     }
 
     @media (pointer: coarse) {
-      && button:hover {
+      && button:hover, .icon-btn:hover, .text-btn:hover {
         background-color: none !important
     }
 
