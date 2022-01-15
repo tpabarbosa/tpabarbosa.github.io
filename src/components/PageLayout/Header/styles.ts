@@ -7,7 +7,7 @@ export const Container = styled.div`
     flex-direction: column;
     right: 0;
     bottom: 0;
-    z-index: 100;
+    z-index: 1000;
     height: fit-content;
     
     button:nth-child(1) {
