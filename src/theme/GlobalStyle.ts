@@ -1,7 +1,8 @@
-import { createGlobalStyle, ThemeProps, withTheme } from 'styled-components';
-import { ThemeType } from './Theme.types';
-  
-const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
+import { createGlobalStyle, ThemeProps, withTheme } from "styled-components";
+import { ThemeType } from "./Theme.types";
+
+const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(
+  ({ theme }) => `
 
     * {
       margin: 0;
@@ -14,33 +15,34 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
       -webkit-font-smoothing: antialiased;
       height: 100vh;
       margin: 0 auto;
-      background-color: ${ theme.background};
-      color: ${ theme.color};
-      font-family: 'Bebas Neue', sans-serif;
+      background-color: ${theme.background};
+      color: ${theme.color};
+      font-family: 'Gothic A1', sans-serif;
+      font-size: 18px;
     }
 
     button { 
-      background-color: ${ theme.backgroundButton};
-      color: ${ theme.colorButton};
+      background-color: ${theme.backgroundButton};
+      color: ${theme.colorButton};
       cursor: pointer;
       transition: color 0.5s, background-color 0.5s;
     }
 
     a { 
-      color: ${ theme.color };
+      color: ${theme.color};
       cursor: pointer;
       text-decoration: none;
     }
 
     .text-btn {
-      background-color: ${ theme.backgroundButton};
-      color: ${ theme.colorButton};
+      background-color: ${theme.backgroundButton};
+      color: ${theme.colorButton};
       cursor: pointer;
       padding: 0.75rem;
       margin: 1rem;
-      border: 1px solid ${ theme.color };
+      border: 1px solid ${theme.backgroundTwo};
       border-radius: 0.5rem;
-      box-shadow: 2px 2px 2px #888888;
+      box-shadow: 0px 0 2px 1px ${theme.backgroundTwo};
       transition: color 0.5s, background-color 0.5s;
     }
 
@@ -52,21 +54,30 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
       line-height: 2rem;
       border: 0;
       border-radius:100%;
-      background-color: rgba(0,0,0,.2);
+      background-color: ${theme.background}33;
       cursor: pointer;
+      backdrop-filter: blur(5px);
 
       span {
         font-size: 1.5rem;
         width: 2rem;
         height: 2rem;
+        color: ${theme.color};
       }
 
+      @media (min-width: 768px) {
+
+        span {
+          font-size: 1.1rem;
+        }
+
+      }
     }
 
     @media (hover) {
       button:hover, .icon-btn:hover, .text-btn:hover {
-          background-color: ${ theme.backgroundTwo};
-          color: ${ theme.colorTwo};
+          background-color: ${theme.background};
+          color: ${theme.color};
       }
     }
 
@@ -75,6 +86,7 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(({theme}) => `
         background-color: none !important
     }
 
-`);
-  
+`
+);
+
 export default withTheme(GlobalStyle);

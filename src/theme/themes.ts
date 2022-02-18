@@ -1,21 +1,21 @@
 import { ThemeType } from "./Theme.types";
 
 export const dark: ThemeType = {
-    name: "dark",
-    color: "#e7e7e7",
-    background: "#001b24",
-    colorTwo: "#001b24",
-    backgroundTwo: "#e7e7e7",
-    colorButton: "#e7e7e7",
-    backgroundButton: "#001b24"
+  name: "dark",
+  color: "#cacaca",
+  background: "#2a2a2a",
+  colorTwo: "#cacaca",
+  backgroundTwo: "#202020",
+  colorButton: "#202020",
+  backgroundButton: "#7a7a7a",
 };
 
 export const light: ThemeType = {
-    name: "light",
-    color: "#005f7f",
-    background: "#e7e7e7",
-    colorTwo: "#e7e7e7",
-    backgroundTwo: "#005f7f",
-    colorButton: "#005f7f",
-    backgroundButton: "#e7e7e7"
-}
+  name: "light",
+  color: "#012d3c",
+  background: "#e7e7e7",
+  colorTwo: "#cacaca",
+  backgroundTwo: "#012d3c",
+  colorButton: "#e7e7e7",
+  backgroundButton: "#005f7f",
+};
