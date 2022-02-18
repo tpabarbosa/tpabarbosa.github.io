@@ -1,11 +1,12 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { Outlet } from 'react-router';
 import { Machine, useStateMachine } from '../../stateMachine/useStateMachine';
 import { PageButtons } from "./PageButtons"
-import { Loader } from "./Loader"
+// import { Loader } from "./Loader"
 import { MenuNav } from './Navigation/MenuNav';
 import { PrevNextNav } from "./Navigation/PrevNextNav";
 import * as S from "./styles";
+import useLanguage from '../../Translation';
 
 export type PageState = 'UNLOADED' | 'LOADED' | 'TRANSITIONING_PAGES' | 'MENU_NAV_IS_OPEN';
 
@@ -16,7 +17,14 @@ export type PageStatus = {
     dispatchAction: (action: PageAction) => void;
 }
 
-export const PageContext = createContext<PageStatus>({} as PageStatus);
+const PageContext = createContext<PageStatus>({} as PageStatus);
+
+export const usePage = () => {
+    const page = useContext(PageContext);
+    const lang = useLanguage();
+
+    return {...page, lang: lang[0]}
+}
 
 export const PageLayout = () => {
 
