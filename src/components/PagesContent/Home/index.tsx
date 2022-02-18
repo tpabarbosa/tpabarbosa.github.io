@@ -1,36 +1,33 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import useLanguage from "../../../Translation";
-import { Background } from "../../Background";
-import { PageContext } from "../../PageLayout";
-import { Title } from "../../Title";
+import { Background } from "../../PageLayout/Background";
+import { usePage } from "../../PageLayout";
 import * as S from "./styles";
 import { data } from "./data";
+import background from "../../../assets/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg";
+import { Header } from "../../PageLayout/Header";
 
 export const Home = () => {
-    const page = useContext(PageContext);
-    const [lang] = useLanguage();
+    const page = usePage();
 
     return (
         <S.Section >
             <Background 
-                url={'/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg'} 
+                url={background} 
                 size={'cover'} 
                 position={'0 0'} 
             />
-            <Title isLoaded={page.state==='LOADED' ? true : false} >
-                <h1>{data.title[lang]}</h1>
-                <p>{data.paragraph[lang]} </p>
-                <Link 
-                    to='/projects' 
-                    onClick={() => page.dispatchAction('CHANGE_PAGE')}
-                >
-                    <span>{data.link[lang]}</span>
-                    <span>{'  >'}</span>
-                    <span>{'  >'}</span>
-                    <span>{'  >'}</span>
-                </Link>
-            </Title>
+            <Header 
+                isLoaded={page.state==='LOADED' ? true : false} 
+                title={data.title[page.lang]} 
+                subtitle={data.paragraph[page.lang]} 
+                link={
+                    {
+                        to:'/projects', 
+                        text: data.link[page.lang],
+                        onClick:() => page.dispatchAction('CHANGE_PAGE'), 
+                    }
+                } 
+            />
+
         </S.Section>
     )
 }

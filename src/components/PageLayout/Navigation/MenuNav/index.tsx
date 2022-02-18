@@ -1,13 +1,10 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { PageContext } from "../..";
-import useLanguage from "../../../../Translation";
+import { usePage } from "../..";
 import * as S from "./styles";
 import { routes } from "../../../../routes/routesList"
 
 export const MenuNav = () => {
-    const page = useContext(PageContext);
-    const [lang] = useLanguage();
+    const page = usePage();
 
     const handleLinkClick = () => {
         page.state === 'MENU_NAV_IS_OPEN' && page.dispatchAction('CHANGE_PAGE');
@@ -21,7 +18,7 @@ export const MenuNav = () => {
                     onClick={handleLinkClick} 
                     key={route.path}
                 >
-                    <span>{route[lang]}</span>
+                    <span>{route[page.lang]}</span>
                 </Link>
             )}
         </S.Nav>

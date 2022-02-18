@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../../../routes/routesList";
-import { PageContext } from "../..";
+import { usePage } from "../..";
 import * as S from "./styles";
 
 type PrevNextNavProps = {
@@ -9,7 +8,7 @@ type PrevNextNavProps = {
 }
 
 export const PrevNextNav = ({type}: PrevNextNavProps) => {
-    const page = useContext(PageContext);
+    const page = usePage();
 
     const location = useLocation();
 
