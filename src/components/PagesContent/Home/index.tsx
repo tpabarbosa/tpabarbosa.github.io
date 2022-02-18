@@ -13,7 +13,7 @@ export const Home = () => {
             <Background 
                 url={background} 
                 size={'cover'} 
-                position={'0 0'} 
+                position={'0 -80px'} 
             />
             <Header 
                 isLoaded={page.state==='LOADED' ? true : false} 
