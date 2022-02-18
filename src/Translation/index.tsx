@@ -26,7 +26,9 @@ export const TranslatedApp: React.FC = ({children})=> {
     )
 }
 
-export const useLanguage = (): [Language, () => void] => {
+type LanguageToggler = () => void
+
+export const useLanguage = (): [Language, LanguageToggler] => {
     const ctx = useContext(LanguageContext);
 
     const languageToggler = () => (
