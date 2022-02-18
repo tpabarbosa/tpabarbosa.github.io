@@ -35,13 +35,13 @@ export const routes = [
         'EN': 'projects'
     },
     {
-        path: '/contact',
-        'PT-BR': 'contato',
-        'EN': 'contact'
-    },
-    {
         path: '/about',
         'PT-BR': 'quem sou',
         'EN': 'about'
+    },
+    {
+        path: '/contact',
+        'PT-BR': 'contato',
+        'EN': 'contact'
     },
 ]
