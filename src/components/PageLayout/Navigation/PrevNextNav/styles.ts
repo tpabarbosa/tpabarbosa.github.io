@@ -20,14 +20,6 @@ export const Container = styled.nav<ContainerProps>`
     justify-content: center;
     text-align: center;
     height: 100%;
-
-    :hover {
-      color: ${(props) => props.theme.colorTwo};
-
-      div {
-        background-color: ${(props) => props.theme.backgroundTwo};
-      }
-    }
   }
 
   ${media.desktop`
