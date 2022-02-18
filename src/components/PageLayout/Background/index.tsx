@@ -9,6 +9,6 @@ export type BackgroundProps = {
 export const Background = (props: BackgroundProps) => {
 
     return (
-        <S.Background {...props}/>
+        <S.Background {...props} data-testid="background"/>
     )
 }
