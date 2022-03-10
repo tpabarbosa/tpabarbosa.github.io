@@ -1,9 +1,16 @@
 {
   "files": {
-    "main.js": "/static/js/main.dd81ddde.js",
+    "main.js": "/static/js/main.67ac54fd.js",
+    "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.fcadc8e85fb82dc7bb5c.jpg",
+    "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.png": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.0b46802a8183d0c444f5.png",
+    "static/media/headlights-g1fe75e9e5_1920.jpg": "/static/media/headlights-g1fe75e9e5_1920.90d14607ce0a69d9592f.jpg",
+    "static/media/cursinhonucleo.png": "/static/media/cursinhonucleo.eed69f2bd3e0ceb0b442.png",
+    "static/media/react-dos-terminal.png": "/static/media/react-dos-terminal.4155b17c89f9459a5a4f.png",
+    "static/media/game-screenshot.png": "/static/media/game-screenshot.96fb4553beda148f347f.png",
+    "static/media/WebPlus_IBM_VGA_9x16.woff": "/static/media/WebPlus_IBM_VGA_9x16.34633851ff87c8ed9ca5.woff",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/js/main.dd81ddde.js"
+    "static/js/main.67ac54fd.js"
   ]
 }
