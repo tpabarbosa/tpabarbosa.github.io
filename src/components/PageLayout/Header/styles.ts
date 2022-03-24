@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import media from "../../../Theme/media";
 
-export const Header = styled.div`
+export const Header = styled.header`
   text-align: right;
   position: relative;
   top: 0;

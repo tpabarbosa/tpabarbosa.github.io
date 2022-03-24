@@ -1,24 +1,98 @@
+import { Background } from "../../PageLayout/Background";
 import * as S from "./styles";
+import { data } from "./data";
+import background from "../../../assets/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg";
+import { Header } from "../../PageLayout/Header";
+import { usePage } from "../../PageLayout";
+import avatar from "../../../assets/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.png";
+import { Terminal } from "react-dos-terminal";
+import { terminalConfig } from "./terminal/terminalConfig";
+import { useToggler } from "../../../toggler/useToggler";
+import { ParagraphsRenderer } from "../../PageLayout/ParagraphsRenderer";
+import { HistoryCard } from "./HistoryCard";
 
 export const About = () => {
+    const page = usePage();
+    const [hasChosen, toggleHasChosen] = useToggler(false)
+    const [showTerminal, toggleShowTerminal] = useToggler(false)
 
     return (
-        <S.Section>   
-            
-            <h1>Hi, my name is Tatiana Barbosa.</h1>
-            <img 
-                src='/images/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.png' 
-                alt='Tatiana Barbosa'    
+        <S.Main>
+            <Background 
+                url={background} 
+                // size={'cover'} 
+                position={'100% 100%'}  
             />
-            <p>Since I first got a computer and saw a black screen with something blinking in front of my eyes, I have been asking myself </p> 
-            
-            <p className='special'>what can I do with that?</p>
+            <Header 
+                isLoaded={page.state==='LOADED' ? true : false} 
+                title={data.title[page.lang]} 
+                subtitle={data.subtitle[page.lang]} 
+                link={
+                    {
+                        to:'/contact', 
+                        text: data.link[page.lang],
+                        onClick:() => page.dispatchAction('CHANGE_PAGE'), 
+                    }
+                } 
+            />
+            <S.Article>
+                <S.Introduction className={page.state==='LOADED' ? '' : 'hidden'}>
+                    
+                    <S.Text >
+                        <ParagraphsRenderer data={data.introduction[page.lang]}/>
+                    </S.Text>
+                    <figure>
+                        <S.Avatar url={avatar} />
+                    </figure>
+                    
+                </S.Introduction>
 
-            <p>Soon I learnt my first command, and after that some others, and finally the most important ones: <code>help</code> or <code>/?</code>. This was a breaking moment, something had changed forever... I could never stop!</p>
+                <S.Content className={page.state==='LOADED' ? '' : 'hidden'}>
+                    <S.Text>
+                        <ParagraphsRenderer data={data.firstCommands[page.lang]}/>
+                    </S.Text>
+                    
+                </S.Content>
 
-            <p>But life is something really <strong>incredible</strong> and <strong>unpredictable</strong>, and I became a Biologist and started working as a Teacher. I must say, not a very conventional Biologist, because I really enjoy numbers,  logical thinking, computers, statistics, all those things that geeks like. Then I started teaching not only Biology, but Maths and Physics too.</p>
+                <S.Content>
+                    <S.Text>
+                        <ParagraphsRenderer data={data.invitation[page.lang]} />
+                        <S.Pills onClick={() => !hasChosen && toggleHasChosen()}>
+                            <S.Pill active={hasChosen && !showTerminal} onClick={() => showTerminal && toggleShowTerminal()} >
+                                <p>{data.toggleToTerminal[page.lang]}</p>
+                            </S.Pill>
+                            <S.Pill active={hasChosen && showTerminal} onClick={() => !showTerminal && toggleShowTerminal()} >
+                                <p>{data.toggleToText[page.lang]}</p>
+                            </S.Pill>
+                        </S.Pills>
+                    </S.Text>
+                </S.Content>
 
-            <p>Sometimes as a hobby, somethimes to help solving problems or needs that I had, I never left coding and always implemented my own programs, apps, sites, scripts...</p>
-        </S.Section>
+                { hasChosen && !showTerminal && page.lang==='EN' &&
+                    <S.Terminal>
+                        <Terminal config={terminalConfig(page.lang)} id='TatiPortfolio'/>
+                    </S.Terminal>
+                }
+                { hasChosen && !showTerminal && page.lang === 'PT-BR' &&
+                    <S.Terminal>
+                        <Terminal config={terminalConfig(page.lang)} id='TatiPortfolio'/>
+                    </S.Terminal>
+                }
+
+                {showTerminal && 
+                <>
+                    
+                        {data.mainHistory.map(history => 
+                            <S.Content>
+                                <S.Text>
+                            <HistoryCard key={history.id} history={history} />
+                            </S.Text>
+                            </S.Content>
+                        )}
+                        </>
+                }
+                    
+            </S.Article>
+        </S.Main>
     )
 }

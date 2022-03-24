@@ -4,6 +4,8 @@ import {techs} from "../projects";
 import useLanguage from "../../../../Translation";
 import { data } from "../data";
 import { useToggler } from "../../../../toggler/useToggler";
+import { ConditionalSpanTextButton } from "../../../PageLayout/ConditionalSpanTextButton";
+import { ParagraphsRenderer } from "../../../PageLayout/ParagraphsRenderer";
 
 type ProjectCardProps = {
     project: Project;
@@ -15,7 +17,7 @@ export const ProjectCard = ({project}: ProjectCardProps) => {
     const [isOpen, toggle] = useToggler(false);
     return (
         <S.Container>
-            <S.Name>{project.name && project.name[lang]}</S.Name>
+            <S.Name><h2>{project.name && project.name[lang]}</h2></S.Name>
             <S.Image>
                 {project.image && 
                     <img 
@@ -25,24 +27,20 @@ export const ProjectCard = ({project}: ProjectCardProps) => {
                 }
             </S.Image>
             
-            
             <S.Abstract>
                 { isOpen && 
-                    <>
-                    { project.abstract[lang].map(paragraph => 
-                    <p key={paragraph} dangerouslySetInnerHTML={{__html: paragraph}} />
-                    )}
-                    <div><span onClick={toggle}>{data.less[lang]}</span></div>
-                    </>
+                <ParagraphsRenderer data={project.abstract[lang]} />
                 }
                 { !isOpen &&
-                <>
-                    <p dangerouslySetInnerHTML={{ __html: project.abstract[lang][0] }} />
-                    { project.abstract[lang].length > 1 && 
-                        <div><span onClick={toggle}>{data.readmore[lang]}</span></div>
-                    }
-                </>
+                <ParagraphsRenderer data={project.abstract[lang]} onlyFirst/>
                 }
+                <ConditionalSpanTextButton 
+                    conditionA={isOpen} 
+                    textConditionA={data.less[lang]} 
+                    conditionB={!isOpen && project.abstract[lang].length > 1} 
+                    textConditionB={data.readmore[lang]} 
+                    toggler={toggle} 
+                />
                 
             </S.Abstract>
             <S.Techs>{ project.techs && project.techs?.map(tech => (

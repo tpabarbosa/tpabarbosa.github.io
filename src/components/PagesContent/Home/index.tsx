@@ -9,11 +9,11 @@ export const Home = () => {
     const page = usePage();
 
     return (
-        <S.Section >
+        <S.Main >
             <Background 
                 url={background} 
                 size={'cover'} 
-                position={'0 -80px'} 
+                position={'0 0'} 
             />
             <Header 
                 isLoaded={page.state==='LOADED' ? true : false} 
@@ -28,6 +28,6 @@ export const Home = () => {
                 } 
             />
 
-        </S.Section>
+        </S.Main>
     )
 }

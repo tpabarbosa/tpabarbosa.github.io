@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import media from "../../../Theme/media";
 
-export const Section = styled.section`
+export const Main = styled.main`
   top: calc(37vh - 3rem);
   position: absolute;
 

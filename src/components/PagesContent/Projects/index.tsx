@@ -11,7 +11,7 @@ export const Projects = () => {
     const page = usePage();
     
     return (
-        <S.Section>
+        <S.Main>
             <Background 
                 url={background} 
                 position={'0% 100%'} 
@@ -29,6 +29,6 @@ export const Projects = () => {
                 )}
             </S.Projects>
 
-        </S.Section>
+        </S.Main>
     )
 }

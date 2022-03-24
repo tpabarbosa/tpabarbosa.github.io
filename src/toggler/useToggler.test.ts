@@ -18,8 +18,9 @@ describe("useToggler", () => {
     expect(result.current[0]).toEqual(false);
   });
 
-  it("toggles value when is toggler is called", () => {
+  it("toggles value when toggler is called", () => {
     const { result } = renderHook(() => useToggler());
+
     expect(result.current[0]).toEqual(false);
     act(() => {
       result.current[1]();

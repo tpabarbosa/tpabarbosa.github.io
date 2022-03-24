@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import media from "../../../Theme/media";
 
-export const Section = styled.section`
+export const Main = styled.main`
   width: 100%;
   min-height: 100vh;
   margin-bottom: 2rem;
