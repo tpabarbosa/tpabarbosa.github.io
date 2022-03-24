@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle<ThemeProps<ThemeType>>(
       margin: 0 auto;
       background-color: ${theme.background};
       color: ${theme.color};
-      font-family: 'Gothic A1', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 18px;
     }
 
