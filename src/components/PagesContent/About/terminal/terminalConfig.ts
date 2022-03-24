@@ -199,6 +199,6 @@ export const terminalConfig = (lang: "PT-BR" | "EN") => {
       },
       shouldTypewrite: true,
     },
-    shouldPersistUserData: true,
+    shouldPersisteUserData: false,
   };
 };
