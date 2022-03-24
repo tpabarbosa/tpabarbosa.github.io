@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router';
 import { Machine, useStateMachine } from '../../stateMachine/useStateMachine';
 import { PageButtons } from "./PageButtons"
@@ -58,11 +58,20 @@ export const PageLayout = () => {
 
     const [state, dispatchAction] = useStateMachine(pageMachine);
 
+    const topRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if(topRef.current && state === 'TRANSITIONING_PAGES') {
+            topRef.current.scrollIntoView({block: "start"})
+            console.log('aqui')
+        }
+        
+    }, [topRef, state])
 
     return (
         <PageContext.Provider value={{state, dispatchAction}} >
-            <S.Page className="App">
-                <S.FadeOut 
+            <S.Page  className="App">
+                <S.FadeOut
                     className={state}
                     onAnimationEnd={ () => dispatchAction('FINISH_TRANSITIONING_PAGES') }
                 />
@@ -70,8 +79,8 @@ export const PageLayout = () => {
                 <MenuNav />
                 <PageButtons />
                 <PrevNextNav type='prev' />
-                <S.FadeIn className={state}>
-                    <Outlet />
+                <S.FadeIn ref={topRef} className={state}>
+                    <Outlet  />
                 </S.FadeIn> 
                 <PrevNextNav type='next' />
                 {/* <Loader /> */}
