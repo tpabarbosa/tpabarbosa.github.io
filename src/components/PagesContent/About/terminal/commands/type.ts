@@ -9,12 +9,14 @@ export const type = (lang: "PT-BR" | "EN") => {
     const { args, currentDir } = props;
 
     if (args.toLowerCase() === "readme.txt" && currentDir === "") {
-      setAchieved(1);
+      setAchieved(2);
+    } else if (args.toLowerCase() === "skills.txt" && currentDir === "user") {
+      setAchieved(4);
     } else if (
-      args.toLowerCase() === "soft-skills.txt" &&
+      args.toLowerCase() === "objectives.txt" &&
       currentDir === "user"
     ) {
-      setAchieved(3);
+      setAchieved(6);
     }
 
     return { ...command, configTerminal: getConfigPrompt(lang) };

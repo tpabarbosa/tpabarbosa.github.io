@@ -11,15 +11,14 @@ import {
 import { getConfigPrompt, getHistory, setAchieved } from "../helpers";
 import { useEffect } from "react";
 
-export const breakout = (lang: "PT-BR" | "EN") => {
-  const part = 2;
+export const breakout = (lang: "PT-BR" | "EN", partID: number) => {
 
   const run = (): Command => {
-    setAchieved(part)
+    setAchieved(partID)
     return {
       configTerminal: getConfigPrompt(lang),
       dynamic: {
-        element: <Breakout lang={lang} part={part}/>,
+        element: <Breakout lang={lang} partID={partID}/>,
         options: {shouldHideTerminalOutput: true}
       },
     };
@@ -33,12 +32,12 @@ export const breakout = (lang: "PT-BR" | "EN") => {
 
 type BreakOutProps = {
   lang: "EN" | "PT-BR";
-  part: number;
+  partID: number;
 };
 
-export const Breakout = ({ part, lang }: BreakOutProps) => {
+export const Breakout = ({ partID, lang }: BreakOutProps) => {
 
-  const text = getHistory(part, lang);
+  const text = getHistory(partID, lang);
 
   const final = {
     "PT-BR": "Aperte < Enter > para fechar",

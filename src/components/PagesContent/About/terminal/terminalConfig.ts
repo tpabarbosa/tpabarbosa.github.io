@@ -22,6 +22,7 @@ import { dictionary } from "./commands/dictionary";
 import { softSkills } from "./files/softSkills";
 import { covid19 } from "./commands/covid19";
 import { restart } from "./commands/restart";
+import { objectives } from "./files/objectives";
 
 const initialOutput = {
   "PT-BR": [
@@ -53,8 +54,8 @@ const customCommands = (lang: "PT-BR" | "EN"): FakeCommand[] => {
     },
     {
       name: lang === "EN" ? "about" : "sobre",
-      action: about(lang).run,
-      help: about(lang).help,
+      action: about(lang, 1).run,
+      help: about(lang, 1).help,
     },
     {
       name: lang === "EN" ? "achievements" : "conquistas",
@@ -79,7 +80,7 @@ const customFiles = (lang: "PT-BR" | "EN"): FakeFile[] => {
     {
       name: "readme.txt",
       type: "text/plain",
-      content: { text: readme(lang) },
+      content: { text: readme(lang, 2) },
       attributes: "p",
     },
     {
@@ -90,19 +91,26 @@ const customFiles = (lang: "PT-BR" | "EN"): FakeFile[] => {
         {
           name: "skills.txt",
           type: "text/plain",
-          content: { text: softSkills(lang) },
+          content: { text: softSkills(lang, 4) },
           attributes: "ph",
           size: fileSystemHelper.getFakeFileSize([softSkills]),
         },
         {
-          name: "idioms.rtf",
+          name: "objectives.txt",
+          type: "text/plain",
+          content: { text: objectives(lang, 6) },
+          attributes: "p",
+          size: fileSystemHelper.getFakeFileSize([objectives]),
+        },
+        {
+          name: "idioms.txt",
           type: "text/plain",
           content: { text: idioms(lang) },
           attributes: "p",
           size: fileSystemHelper.getFakeFileSize([idioms]),
         },
         {
-          name: "techs.rtf",
+          name: "techs.txt",
           type: "text/plain",
           content: { text: techs(lang) },
           attributes: "p",
@@ -136,7 +144,7 @@ const customFiles = (lang: "PT-BR" | "EN"): FakeFile[] => {
           name: "covid19.exe",
           type: "application/executable",
           content: {
-            action: covid19(lang).run,
+            action: covid19(lang, 5).run,
           },
           attributes: "p",
           size: fileSystemHelper.getFakeFileSize([covid19]),
@@ -162,8 +170,7 @@ const customFiles = (lang: "PT-BR" | "EN"): FakeFile[] => {
           name: "breakout.exe",
           type: "application/executable",
           content: {
-            action: breakout(lang).run,
-            //help: ["Just a hangman game"],
+            action: breakout(lang, 3).run,
           },
           attributes: "p",
           size: fileSystemHelper.getFakeFileSize([Hangman]),
@@ -197,7 +204,7 @@ export const terminalConfig = (lang: "PT-BR" | "EN") => {
       promptCallback: (prompt: string) => {
         return prompt.replace(/%count/gi, getAchievementsCount().toString());
       },
-      shouldTypewrite: true,
+      shouldTypewrite: false,
     },
     shouldPersisteUserData: false,
   };

@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { Command, CommandScreen, Input, useInput, useTerminal } from "react-dos-terminal";
-import { clearAchievementsStatus, getConfigPrompt } from "../helpers";
+import { clearAchievementsStatus, getConfigPrompt, getPromptText } from "../helpers";
 
 const question = {
     "PT-BR": "Você tem certeza de que gostaria de reiniciar o seu progresso? (S/N)",
@@ -58,6 +58,7 @@ export const Restart = ({lang}: RestartProps) => {
         terminal.output.addToQueue([
             { action: 'add', value: ["", restarted[lang] , ""] },
         ])
+        terminal.setPrompt(getPromptText(lang))
         terminal.endRunningCommand()
         return
       }

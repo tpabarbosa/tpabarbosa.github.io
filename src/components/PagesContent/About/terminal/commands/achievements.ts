@@ -8,8 +8,8 @@ export const achievements = (lang: "PT-BR" | "EN") => {
     EN: ["This command shows your achievements inside this terminal."],
   };
 
-  const achieved = "<span style='font-size:24px'>🗹</span>";
-  const notAchieved = "<span style='font-size:24px'>🗷</span>";
+  const achieved = "<span style='font-size:24px'>✓</span>";
+  const notAchieved = "<span style='font-size:24px'>✘</span>";
 
   const run = (): Command => {
     const final = data.mainHistory.map((part, index) => {
@@ -17,9 +17,10 @@ export const achievements = (lang: "PT-BR" | "EN") => {
         action: "add" as const,
         value: [
           "-------------------------------------------------------------",
-          `<h4>     ${isAchieved(index) ? achieved : notAchieved}      ${
-            part.title[lang]
-          }</h4>`,
+          "",
+          `<h4>     ${
+            isAchieved(parseInt(part.id)) ? achieved : notAchieved
+          }      ${part.title[lang]}</h4>`,
           `     <em>${part.hint[lang]}</em>`,
           "",
         ],

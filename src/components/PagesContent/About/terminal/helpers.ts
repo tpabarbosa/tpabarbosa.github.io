@@ -1,6 +1,9 @@
 import localStorage from "../../../../localStorage";
 import { data } from "../data";
 
+const NUM_OF_ACHIEVEMENTS = 6;
+const EMPTY_ACHIEVEMENTS_STATUS = "0".repeat(NUM_OF_ACHIEVEMENTS);
+
 const setCharAt = (str: string, index: number, chr: string) => {
   if (index > str.length - 1) return str;
   return str.substring(0, index) + chr + str.substring(index + 1);
@@ -16,25 +19,26 @@ export const createAchievementsStatus = () => {
 const getAchievementsStatus = () => {
   const achievements = localStorage.get("achievements");
   if (
-    achievements &&
-    achievements.status &&
-    typeof achievements.status === "string"
+    !achievements ||
+    !achievements.status ||
+    typeof achievements.status !== "string"
   ) {
-    return achievements.status;
+    return EMPTY_ACHIEVEMENTS_STATUS;
   }
-  return "00000";
+
+  return achievements.status;
 };
 
-export const isAchieved = (goal: number) => {
+export const isAchieved = (partID: number) => {
   const achievements = getAchievementsStatus();
-  return achievements[goal] === "1";
+  return achievements[partID - 1] === "1";
 };
 
-export const setAchieved = (goal: number) => {
-  if (!isAchieved(goal)) {
+export const setAchieved = (partID: number) => {
+  if (!isAchieved(partID)) {
     const achievements = getAchievementsStatus();
     localStorage.set("achievements", {
-      status: setCharAt(achievements, goal, "1"),
+      status: setCharAt(achievements, partID - 1, "1"),
     });
   }
 };
@@ -59,38 +63,42 @@ const getEndGameText = (lang: "PT-BR" | "EN") => {
 
 export const getPromptText = (lang: "PT-BR" | "EN") => {
   const count = getAchievementsCount();
-  return `${lang === "EN" ? "Your progress:" : "Seu progresso:"} %count/5 ${
-    count === 5 ? `$_${getEndGameText(lang)}` : ""
+  return `${
+    lang === "EN" ? "Your progress:" : "Seu progresso:"
+  } %count/${NUM_OF_ACHIEVEMENTS} ${
+    count === NUM_OF_ACHIEVEMENTS ? `$_${getEndGameText(lang)}` : ""
   }$_$p$g`;
 };
 
 export const clearAchievementsStatus = () => {
   localStorage.set("achievements", {
-    status: "00000",
+    status: EMPTY_ACHIEVEMENTS_STATUS,
   });
 };
 
-export const getHistory = (part: number, lang: "PT-BR" | "EN") => {
+export const getHistory = (partID: number, lang: "PT-BR" | "EN") => {
   const space = " ";
-  const title = data.mainHistory[part].title[lang];
+  const title = data.mainHistory[partID - 1].title[lang];
 
   const hint = {
     "PT-BR":
-      part < 4
+      partID < NUM_OF_ACHIEVEMENTS
         ? [
+            "",
             "► CONTINUA...",
-            `<strong>Dica</strong>: <em>${
-              data.mainHistory[part + 1].hint[lang]
-            }</em>`,
+            "",
+            `  <strong>Dica para ajudar a encontrar a próxima parte</strong>:`,
+            `     <em>${data.mainHistory[partID].hint[lang]}</em>`,
           ]
         : [],
     EN:
-      part < 4
+      partID < NUM_OF_ACHIEVEMENTS
         ? [
+            "",
             "► TO BE CONTINUED...",
-            `<strong>Hint</strong>: <em>${
-              data.mainHistory[part + 1].hint[lang]
-            }</em>`,
+            "",
+            `  <strong>Hint to help you find out the next part</strong>:`,
+            `     <em>${data.mainHistory[partID].hint[lang]}</em>`,
           ]
         : [],
   };
@@ -98,24 +106,24 @@ export const getHistory = (part: number, lang: "PT-BR" | "EN") => {
   const text = {
     "PT-BR": [
       "╔══════════════════════════════════════════════╗",
-      `║ CONTINUANDO A HISTÓRIA - PARTE ${part + 1}             ║`,
+      `║ CONTINUANDO A HISTÓRIA - PARTE ${partID}             ║`,
       "║                                              ║",
       `║ ${title}${space.repeat(45 - title.length)}║ `,
       "╚══════════════════════════════════════════════╝",
       "",
-      ...data.mainHistory[part].content[lang],
+      ...data.mainHistory[partID - 1].content[lang],
       "",
       ...hint[lang],
       "",
     ],
     EN: [
       "╔══════════════════════════════════════════════╗",
-      `║ CONTINUING THE HISTORY - PART ${part + 1}              ║`,
+      `║ CONTINUING THE HISTORY - PART ${partID}              ║`,
       "║                                              ║",
       `║ ${title}${space.repeat(45 - title.length)}║ `,
       "╚══════════════════════════════════════════════╝",
       "",
-      ...data.mainHistory[part].content[lang],
+      ...data.mainHistory[partID - 1].content[lang],
       "",
       ...hint[lang],
       "",
