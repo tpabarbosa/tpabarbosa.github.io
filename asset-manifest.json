@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.936ffe7b.js",
+    "main.js": "/static/js/main.24df0017.js",
     "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.fcadc8e85fb82dc7bb5c.jpg",
     "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.png": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.0b46802a8183d0c444f5.png",
     "static/media/headlights-g1fe75e9e5_1920.jpg": "/static/media/headlights-g1fe75e9e5_1920.90d14607ce0a69d9592f.jpg",
@@ -11,6 +11,6 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/js/main.936ffe7b.js"
+    "static/js/main.24df0017.js"
   ]
 }
