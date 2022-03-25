@@ -116,7 +116,7 @@ export const data = {
           "Como você pode perceber, os aplicativos citados são todos voltados à área da Biologia... sim, a minha formação superior não é relacionada a computação, sou <strong>bacharel em Ciências Biológicas</strong>.",
         ],
         EN: [
-          "My undergrad course was in another city, so I had to move and move out of my parents' house. We only had one computer at home and I was forced to leave it 😢. For about 2 years, I ended up walking away  from the programming universe...",
+          "My undergrad course was in another city, so I had to move out of my parents' house. We only had one computer at home and I was forced to leave it 😢. For about 2 years, I ended up walking away from the programming universe...",
           "",
           "After that time I got a computer and immediately went back to programming. I've always been interested in solving real problems, so I started making programs that could help colleagues and professors in their research. I mainly used <strong>Visual Basic</strong> and <strong>Delphi</strong>. Some of them were:",
           "",
@@ -267,8 +267,8 @@ export const data = {
         EN: "The next steps",
       },
       hint: {
-        "PT-BR": "",
-        EN: "",
+        "PT-BR": "Estamos sempre em busca de algo.",
+        EN: "We are always chasing something",
       },
       content: {
         "PT-BR": [
