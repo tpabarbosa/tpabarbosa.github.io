@@ -63,7 +63,6 @@ export const PageLayout = () => {
     useEffect(() => {
         if(topRef.current && state === 'TRANSITIONING_PAGES') {
             topRef.current.scrollIntoView({block: "start"})
-            console.log('aqui')
         }
         
     }, [topRef, state])
