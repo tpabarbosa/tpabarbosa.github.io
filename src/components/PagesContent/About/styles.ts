@@ -66,7 +66,11 @@ export const Pills = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
+
+  ${media.tablet`
+    flex-direction: row;
+  `};
 `;
 
 export const Text = styled.div`
@@ -104,7 +108,6 @@ export const Pill = styled.div<PillProps>`
   align-content: center;
   flex-direction: column;
   cursor: pointer;
-  //border: 3px solid ${(props) => props.theme.color};
   background: ${(props) => props.theme.backgroundButton};
   color: ${(props) => props.theme.colorButton};
 
@@ -162,6 +165,7 @@ export const Avatar = styled.div<AvatarProps>`
 export const Terminal = styled.div`
   height: 75vh;
   margin: 0 auto;
+  margin-bottom: 2rem;
   background-color: #e7e7e7;
   border: 6px solid ${(props) => props.theme.background};
   overflow-y: hidden;

@@ -10,11 +10,24 @@ import { terminalConfig } from "./terminal/terminalConfig";
 import { useToggler } from "../../../toggler/useToggler";
 import { ParagraphsRenderer } from "../../PageLayout/ParagraphsRenderer";
 import { HistoryCard } from "./HistoryCard";
+import { useEffect, useRef } from "react";
 
 export const About = () => {
     const page = usePage();
     const [hasChosen, toggleHasChosen] = useToggler(false)
     const [showTerminal, toggleShowTerminal] = useToggler(false)
+
+    const pillsRef = useRef<HTMLDivElement | null>(null);
+
+    const handlePillsClick = () => {
+        !hasChosen && toggleHasChosen()
+    }
+
+    useEffect(() => {
+        if(pillsRef.current && hasChosen) {
+            pillsRef.current.scrollIntoView(true)
+        }
+    }, [pillsRef, hasChosen, showTerminal])
 
     return (
         <S.Main>
@@ -54,10 +67,10 @@ export const About = () => {
                     
                 </S.Content>
 
-                <S.Content>
+                <S.Content ref={pillsRef}>
                     <S.Text>
                         <ParagraphsRenderer data={data.invitation[page.lang]} />
-                        <S.Pills onClick={() => !hasChosen && toggleHasChosen()}>
+                        <S.Pills onClick={handlePillsClick}>
                             <S.Pill active={hasChosen && !showTerminal} onClick={() => showTerminal && toggleShowTerminal()} >
                                 <p>{data.toggleToTerminal[page.lang]}</p>
                             </S.Pill>
@@ -85,8 +98,8 @@ export const About = () => {
                         {data.mainHistory.map(history => 
                             <S.Content>
                                 <S.Text>
-                            <HistoryCard key={history.id} history={history} />
-                            </S.Text>
+                                    <HistoryCard key={history.id} history={history} />
+                                </S.Text>
                             </S.Content>
                         )}
                         </>
