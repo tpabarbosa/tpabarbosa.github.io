@@ -1,16 +1,24 @@
 {
   "files": {
-    "main.js": "/static/js/main.24df0017.js",
+    "main.js": "/static/js/main.ed00c853.js",
+    "static/media/movie-app.png": "/static/media/movie-app.43cc1c176191a477f69c.png",
+    "static/media/indiana-genius.png": "/static/media/indiana-genius.b07c068eaace61d6599f.png",
     "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.fcadc8e85fb82dc7bb5c.jpg",
     "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.png": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.0b46802a8183d0c444f5.png",
+    "static/media/tower-defense.png": "/static/media/tower-defense.4c8685c0970fdd375e0b.png",
     "static/media/headlights-g1fe75e9e5_1920.jpg": "/static/media/headlights-g1fe75e9e5_1920.90d14607ce0a69d9592f.jpg",
     "static/media/cursinhonucleo.png": "/static/media/cursinhonucleo.eed69f2bd3e0ceb0b442.png",
+    "static/media/react-native-flashlight.png": "/static/media/react-native-flashlight.48fc98ea16b7acebb325.png",
+    "static/media/ecommerce-backend.png": "/static/media/ecommerce-backend.556a4805d10ed85cc886.png",
+    "static/media/ecommerce-frontend-product_details.png": "/static/media/ecommerce-frontend-product_details.0b3c5e5b5328e56c47c8.png",
+    "static/media/github-profile-viewer.png": "/static/media/github-profile-viewer.65b69b19afb436069261.png",
     "static/media/react-dos-terminal.png": "/static/media/react-dos-terminal.4155b17c89f9459a5a4f.png",
     "static/media/game-screenshot.png": "/static/media/game-screenshot.96fb4553beda148f347f.png",
     "static/media/WebPlus_IBM_VGA_9x16.woff": "/static/media/WebPlus_IBM_VGA_9x16.34633851ff87c8ed9ca5.woff",
+    "static/media/tic-tac-toe.png": "/static/media/tic-tac-toe.5f9a099ff85685473507.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/js/main.24df0017.js"
+    "static/js/main.ed00c853.js"
   ]
 }
