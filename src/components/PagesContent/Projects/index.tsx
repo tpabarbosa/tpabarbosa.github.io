@@ -1,11 +1,15 @@
 import * as S from "./styles";
-import {projects} from "./projects";
-import { ProjectCard } from "./ProjectCard";
+import {games} from "./projectsDetails/games";
 import { usePage } from "../../PageLayout";
 import { Background } from "../../PageLayout/Background";
 import { data } from "./data";
 import background from "../../../assets/images/headlights-g1fe75e9e5_1920.jpg";
 import { Header } from "../../PageLayout/Header";
+import { websites } from "./projectsDetails/websites";
+import { packages } from "./projectsDetails/packages";
+import { mobile } from "./projectsDetails/mobile";
+import { ProjectsList } from "./ProjectsList";
+import { webapps } from "./projectsDetails/webapps";
 
 export const Projects = () => {
     const page = usePage();
@@ -23,11 +27,30 @@ export const Projects = () => {
                 subtitle={data.paragraph[page.lang]} 
             />
 
-            <S.Projects className={page.state==='LOADED' ? '' : 'hidden'}>
-                {projects.map(project => 
-                    <ProjectCard project={project} key={project.id} />
-                )}
-            </S.Projects>
+            <ProjectsList 
+                title={data.websites[page.lang]}
+                projects={websites} 
+            />
+
+            <ProjectsList 
+                title={data.webapps[page.lang]}
+                projects={webapps} 
+            />
+
+            <ProjectsList 
+                title={data.mobile[page.lang]}
+                projects={mobile} 
+            />
+
+            <ProjectsList 
+                title={data.packages[page.lang]}
+                projects={packages} 
+            />
+
+            <ProjectsList 
+                title={data.games[page.lang]}
+                projects={games} 
+            />
 
         </S.Main>
     )

@@ -1,6 +1,6 @@
-import { Project } from "../projects";
+import { Project } from "../projectsDetails/data";
 import * as S from "./styles";
-import {techs} from "../projects";
+import {techs} from "../projectsDetails/data";
 import useLanguage from "../../../../Translation";
 import { data } from "../data";
 import { useToggler } from "../../../../toggler/useToggler";

@@ -13,7 +13,7 @@ export const data = {
   },
   live: {
     "PT-BR": "Visite o site",
-    EN: "Visite the website",
+    EN: "Visit the website",
   },
   readmore: {
     "PT-BR": "continue lendo...",
@@ -26,5 +26,29 @@ export const data = {
   link: {
     "PT-BR": "Conheça um pouco mais sobre mim",
     EN: "Click to know a little more about me",
+  },
+  games:{
+    "PT-BR": "Jogos",
+    EN: "Games",
+  },
+  websites: {
+    "PT-BR": "Websites",
+    EN: "Websites",
+  },
+  mobile: {
+    "PT-BR": "Mobile",
+    EN: "Mobile",
+  },
+  packages: {
+    "PT-BR": "Bibliotecas",
+    EN: "Packages",
+  },
+  webapps: {
+    "PT-BR": "Aplicativos Web",
+    EN: "Web Apps",
+  },
+  others: {
+    "PT-BR": "Outros",
+    EN: "Others",
   },
 };
