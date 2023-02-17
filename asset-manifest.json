@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.ed00c853.js",
+    "main.js": "/static/js/main.1c396fbb.js",
     "static/media/movie-app.png": "/static/media/movie-app.43cc1c176191a477f69c.png",
     "static/media/indiana-genius.png": "/static/media/indiana-genius.b07c068eaace61d6599f.png",
     "static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.jpg": "/static/media/hNXv7eCDkEA7df22j0bfvVHszpLr3f3BfFcL9Ahr.fcadc8e85fb82dc7bb5c.jpg",
@@ -19,6 +19,6 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/js/main.ed00c853.js"
+    "static/js/main.1c396fbb.js"
   ]
 }
