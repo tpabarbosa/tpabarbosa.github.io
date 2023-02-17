@@ -149,6 +149,6 @@ export const websites: Project[] = [
       Tech.RestAPI
     ],
     github: "https://github.com/tpabarbosa/ecommerce-backend",
-    live: "https://tpabarbosa-ecommerce-backend.herokuapp.com/",
+    live: "https://ecommerce-backend-delta.vercel.app/",
   },
 ]
